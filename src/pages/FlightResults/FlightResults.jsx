@@ -1,17 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FlightCard } from "../../components/Components";
+import { clearPriceFilter } from "../../redux/actions/actions";
 
 const FlightResults = () => {
-  const { miscellaneousData, filteredFlights, flights } = useSelector((state) => state.flightReducer);
+  const dispatch = useDispatch();
 
+  const { miscellaneousData, filteredFlights, flights } = useSelector(
+    (state) => state.flightReducer
+  );
+  const handleClearFilters = () => {
+    dispatch(clearPriceFilter());
+  };
   return (
     <>
       <div className="py-1 px-16 text-sm font-semibold">
         {filteredFlights?.length}{" "}
         <span className="text-gray-500">
           of{" "}
-          <span className="underline cursor-pointer">
+          <span className="underline cursor-pointer" onClick={handleClearFilters}>
             {flights?.length} flights
           </span>
         </span>

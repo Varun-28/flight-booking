@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "react-slider";
 import { setPriceFilter, clearPriceFilter } from "../redux/actions/actions";
@@ -13,9 +13,11 @@ const Filters = () => {
   const { minFixedPrice, maxFixedPrice } = fixedrange;
 
   const [sliderValue, setSliderValue] = useState([min, max]);
+  useEffect(() => {
+    setSliderValue([min, max]);
+  }, [min, max]);
 
   const handlePriceChange = ([newMin, newMax]) => {
-    setSliderValue([newMin, newMax]);
     dispatch(setPriceFilter({ minPrice: newMin, maxPrice: newMax }));
   };
 
