@@ -32,7 +32,7 @@ const FlightCard = ({ flight, miscellaneousData }) => {
             {formatDuration(tt[0])}
           </span>
           <span className="flex items-center">
-            <span className="w-full border-b inline-block border-dashed border-[#00CE96] "></span>
+            <span className="w-full border-b inline-block border-dashed border-primary "></span>
             <TbPlaneInflight />
           </span>
         </div>
@@ -49,8 +49,8 @@ const FlightCard = ({ flight, miscellaneousData }) => {
           )}
         </p>
         <button
-          className="px-3 py-1 text-[#00CE96] font-semibold rounded-md bg-white border-2 border-[#00CE96] 
-                   hover:bg-[#00CE96] hover:text-white transition-all duration-300"
+          className="px-3 py-1 text-primary font-semibold rounded-md bg-white border-2 border-primary 
+                   hover:bg-primary hover:text-white transition-all duration-300"
           type="button"
           aria-label="book flight"
         >

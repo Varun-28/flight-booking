@@ -18,7 +18,10 @@ const FlightResults = () => {
         {filteredFlights?.length}{" "}
         <span className="text-gray-500">
           of{" "}
-          <span className="underline cursor-pointer" onClick={handleClearFilters}>
+          <span
+            className="underline cursor-pointer"
+            onClick={handleClearFilters}
+          >
             {flights?.length} flights
           </span>
         </span>

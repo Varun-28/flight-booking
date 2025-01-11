@@ -127,7 +127,10 @@ function Search() {
             </span>
           </div>
         </div>
-        <button className="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+        <button
+          className="px-3 py-1 text-primary font-semibold rounded-md bg-white border-2 border-primary 
+                   hover:bg-primary hover:text-white transition-all duration-300"
+        >
           Search
         </button>
       </div>

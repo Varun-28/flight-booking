@@ -1,22 +1,17 @@
 import flightData from "../../data/flights.json";
 import { getPriceRange } from "../../utils/dataProcessing";
-import AI from "/assets/AI.png";
-import UK from "/assets/UK.png";
 import {
   SET_SORT,
   CLEAR_SORT,
   SET_PRICE_FILTER,
   CLEAR_PRICE_FILTER,
+  AIRLINE_LOGO_MAPPING,
 } from "../../utils/constants";
 
 const flightGroup = flightData?.data?.flights[0];
 const airlineMapping = flightGroup?.results?.aldet;
 const flights = flightGroup?.results?.j;
 const filters = flightGroup?.results?.f[0];
-const airlineLogoMapping = {
-  UK: UK,
-  AI: AI,
-};
 
 const { pr } = filters;
 const { min, max } = pr
@@ -25,12 +20,15 @@ const { min, max } = pr
 
 const initialState = {
   flights: flights,
-  filteredFlights: flights,
+  filteredFlights: [...flights].sort((a, b) => a.farepr - b.farepr),
   priceRange: { min, max },
-  fixedrange: {minFixedPrice: min, maxFixedPrice: max},
+  fixedrange: { minFixedPrice: min, maxFixedPrice: max },
   sortBy: "price",
   sortOrder: "asc",
-  miscellaneousData: { airlineMapping, airlineLogoMapping },
+  miscellaneousData: {
+    airlineMapping,
+    airlineLogoMapping: AIRLINE_LOGO_MAPPING,
+  },
 };
 
 const flightReducer = (state = initialState, action) => {
@@ -71,6 +69,7 @@ const flightReducer = (state = initialState, action) => {
       return {
         ...state,
         sortBy: "price",
+        sortOrder: "asc",
         filteredFlights: [...state.flights].sort((a, b) => a.farepr - b.farepr),
       };
 
