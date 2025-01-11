@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import { Filters, Header, Sort } from "./components/Components";
+import { FlightResults } from "./pages/Page";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      hello  
+      <Header />
+      <Filters />
+      <Sort />
+      <FlightResults />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
