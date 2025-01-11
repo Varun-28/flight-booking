@@ -53,7 +53,7 @@ This project renders flight data such as departure city name and time, arrival c
 
 4. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ---
